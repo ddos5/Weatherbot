@@ -21,3 +21,11 @@ The bot utilizes external APIs to fetch accurate data and presents it in a user-
 * **Clone the repository**
   ```bash
   git clone https://github.com/ddos5/Weatherbot.git
+* **Go to the project directory**
+  ```bash
+  cd Weatherbot
+* **Install dependencies**
+  ```bash
+  pip install pytelegrambotapi requests
+
+
