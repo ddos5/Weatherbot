@@ -12,19 +12,19 @@ dp = Dispatcher(bot)
 
 @dp.message_handler(commands=["start"])
 async def start_command(message: types.Message):
-    await message.reply("Привет! Напиши мне название города и я пришлю сводку погоды!")
+    await message.reply("Hi! Write me the name of the city and I'll send you the weather report!")
 
 
 @dp.message_handler()
 async def get_weather(message: types.Message):
     code_to_smile = {
-        "Clear": "Ясно \U00002600",
-        "Clouds": "Облачно \U00002601",
-        "Rain": "Дождь \U00002614",
-        "Drizzle": "Дождь \U00002614",
-        "Thunderstorm": "Гроза \U000026A1",
-        "Snow": "Снег \U0001F328",
-        "Mist": "Туман \U0001F32B"
+        "Clear": "Clear \U00002600",
+        "Clouds": "Clouds \U00002601",
+        "Rain": "Rain \U00002614",
+        "Drizzle": "Drizzle \U00002614",
+        "Thunderstorm": "Thunderstorm \U000026A1",
+        "Snow": "Snow \U0001F328",
+        "Mist": "Mist \U0001F32B"
     }
 
     try:
@@ -40,7 +40,7 @@ async def get_weather(message: types.Message):
         if weather_description in code_to_smile:
             wd = code_to_smile[weather_description]
         else:
-            wd = "Посмотри в окно, не пойму что там за погода!"
+            wd = "Look out the window, I don't understand the weather!"
 
         humidity = data["main"]["humidity"]
         pressure = data["main"]["pressure"]
@@ -51,14 +51,14 @@ async def get_weather(message: types.Message):
             data["sys"]["sunrise"])
 
         await message.reply(f"***{datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}***\n"
-              f"Погода в городе: {city}\nТемпература: {cur_weather}C° {wd}\n"
-              f"Влажность: {humidity}%\nДавление: {pressure} мм.рт.ст\nВетер: {wind} м/с\n"
-              f"Восход солнца: {sunrise_timestamp}\nЗакат солнца: {sunset_timestamp}\nПродолжительность дня: {length_of_the_day}\n"
-              f"***Хорошего дня!***"
+              f"Weather in: {city}\nTemperature: {cur_weather}C° {wd}\n"
+              f"Humidity: {humidity}%\nPressure: {pressure} hPa\nWind: {wind} m/s\n"
+              f"Sunrise: {sunrise_timestamp}\nSunset: {sunset_timestamp}\nDay length: {length_of_the_day}\n"
+              f"***Have a good day!***"
               )
 
     except:
-        await message.reply("\U00002620 Проверьте название города \U00002620")
+        await message.reply("\U00002620 Check the city name \U00002620")
 
 
 if __name__ == '__main__':
