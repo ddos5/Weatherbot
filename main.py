@@ -7,13 +7,13 @@ from config import open_weather_token
 def get_weather(city, open_weather_token):
 
     code_to_smile = {
-        "Clear": "Ясно \U00002600",
-        "Clouds": "Облачно \U00002601",
-        "Rain": "Дождь \U00002614",
-        "Drizzle": "Дождь \U00002614",
-        "Thunderstorm": "Гроза \U000026A1",
-        "Snow": "Снег \U0001F328",
-        "Mist": "Туман \U0001F32B"
+        "Clear": "Clear \U00002600",
+        "Clouds": "Clouds \U00002601",
+        "Rain": "Rain \U00002614",
+        "Drizzle": "Drizzle \U00002614",
+        "Thunderstorm": "Thunderstorm \U000026A1",
+        "Snow": "Snow \U0001F328",
+        "Mist": "Mist \U0001F32B"
     }
 
     try:
@@ -21,7 +21,7 @@ def get_weather(city, open_weather_token):
             f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={open_weather_token}&units=metric"
         )
         data = r.json()
-        pprint(data)
+        # pprint(data)
 
         city = data["name"]
         cur_weather = data["main"]["temp"]
@@ -30,7 +30,7 @@ def get_weather(city, open_weather_token):
         if weather_description in code_to_smile:
             wd = code_to_smile[weather_description]
         else:
-            wd = "Посмотри в окно, не пойму что там за погода!"
+            wd = "Look out the window, I don't understand the weather!"
 
         humidity = data["main"]["humidity"]
         pressure = data["main"]["pressure"]
@@ -41,19 +41,19 @@ def get_weather(city, open_weather_token):
             data["sys"]["sunrise"])
 
         print(f"***{datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}***\n"
-              f"Погода в городе: {city}\nТемпература: {cur_weather}C° {wd}\n"
-              f"Влажность: {humidity}%\nДавление: {pressure} мм.рт.ст\nВетер: {wind} м/с\n"
-              f"Восход солнца: {sunrise_timestamp}\nЗакат солнца: {sunset_timestamp}\nПродолжительность дня: {length_of_the_day}\n"
-              f"Хорошего дня!"
+              f"Weather in: {city}\nTemperature: {cur_weather}C° {wd}\n"
+              f"Humidity: {humidity}%\nPressure: {pressure} hPa\nWind: {wind} m/s\n"
+              f"Sunrise: {sunrise_timestamp}\nSunset: {sunset_timestamp}\nDay length: {length_of_the_day}\n"
+              f"Have a good day!"
               )
 
     except Exception as ex:
         print(ex)
-        print("Проверьте название города")
+        print("Check the city name")
 
 
 def main():
-    city = input("Введите город: ")
+    city = input("Enter city: ")
     get_weather(city, open_weather_token)
 
 
