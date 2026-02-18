@@ -27,5 +27,9 @@ The bot utilizes external APIs to fetch accurate data and presents it in a user-
 * **Install dependencies**
   ```bash
   pip install pytelegrambotapi requests
-
-
+* **Configure the bot**
+  Open `config.py` and insert your Telegram Bot Token and OpenWeatherMap API Key.
+* **Run the bot**
+  ```bash
+  python main_weather_tg_bot.py
+  
