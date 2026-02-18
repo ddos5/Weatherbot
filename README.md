@@ -20,4 +20,4 @@ The bot utilizes external APIs to fetch accurate data and presents it in a user-
 
 * **Clone the repository**
   ```bash
-  git clone [https://github.com/ddos5/Weatherbot.git](https://github.com/ddos5/Weatherbot.git)
+  git clone https://github.com/ddos5/Weatherbot.git
