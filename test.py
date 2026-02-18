@@ -1,2 +1,2 @@
-smile = "\U0001F600"
+smile = "\U0001F600" #test emoji
 print(smile)
