@@ -1,5 +1,6 @@
 **# Weatherbot
-hz
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)
 **# Weatherbot
 
 **Weatherbot** is a lightweight and efficient Telegram bot designed to provide real-time weather updates. This project was developed to simplify checking meteorological data directly within the messenger interface, eliminating the need for third-party weather apps.
